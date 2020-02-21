@@ -1,0 +1,28 @@
+PODS:
+  - ActionSheetPicker-3.0 (2.3.0)
+  - Alamofire (4.8.2)
+  - RappleProgressHUD (3.0.4)
+  - SCLAlertView (0.8)
+
+DEPENDENCIES:
+  - ActionSheetPicker-3.0
+  - Alamofire
+  - RappleProgressHUD
+  - SCLAlertView
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ActionSheetPicker-3.0
+    - Alamofire
+    - RappleProgressHUD
+    - SCLAlertView
+
+SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  RappleProgressHUD: c57f20ee8e2965c6107aaf76b97ed0f33f00bc1d
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
+
+PODFILE CHECKSUM: 1aadaf45817385f4448dc73720cef32b29862bf6
+
+COCOAPODS: 1.7.5
