@@ -12,6 +12,7 @@ target 'MovieNest' do
   pod 'SCLAlertView'
   pod 'Alamofire'
   pod 'ActionSheetPicker-3.0'
+  pod 'SDWebImage', '~> 5.0'
 
 
 end

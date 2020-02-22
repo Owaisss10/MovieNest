@@ -13,16 +13,17 @@ let userDefaults = UserDefaults.standard
 
 struct Constants {
     
-    static let appThemeColor:UIColor = Colors.dark_gray_color
+    static let appThemeColor:UIColor = Colors.yellow_color
     
     static let API_KEY = "8ce87288c07809c7597ee9e0e9bb0a7d"
     static let LANGUAGE = "&language=en-US"
     
+    static let discover = "discover/movie?"
     
     static let serverURL = "https://api.themoviedb.org/3/"
     static let allGenres = "genre/movie/list?"
     
-    static let createUser = "users?"
+    static let imageURL = "https://image.tmdb.org/t/p/original/"
     
 }
 

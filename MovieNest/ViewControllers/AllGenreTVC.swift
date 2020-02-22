@@ -12,6 +12,7 @@ class AllGenreTVC: UITableViewController {
 
     // MARK: - Variables
     
+    var selectedGenreID:String = ""
     var genreData:GenreResponse!
     
     // MARK: - Outlets
@@ -22,6 +23,8 @@ class AllGenreTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.backgroundColor = Colors.dark_gray_color
+        
         _  = self.loadData()
     }
     
@@ -31,7 +34,7 @@ class AllGenreTVC: UITableViewController {
     
     func loadData() {
         self.startLoader()
-        APIManager.fetchAllGenreIDS { (responseData, error) in
+        APIManager.getAllGenreIDS { (responseData, error) in
             self.stopLoader()
             if error == nil {
                 self.genreData = GenreResponse(fromDictionary: responseData as! [String : Any])
@@ -74,6 +77,29 @@ class AllGenreTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70.0
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let id = self.genreData.genres[indexPath.row].id
+        self.selectedGenreID = "\(id!)"
+        
+        self.performSegue(withIdentifier: "segueNext", sender: self)
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
+    }
+    
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "segueNext" {
+            let vc = segue.destination as? AllMoviesTVC
+            vc?.genreID = "\(self.selectedGenreID)"
+        }
     }
   
 }
