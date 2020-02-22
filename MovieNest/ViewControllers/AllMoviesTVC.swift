@@ -130,28 +130,23 @@ class AllMoviesTVC: UITableViewController {
         if indexPath.row == moviesData.results.count - 1 {
             if pageNumber < moviesData.totalPages {
                 self.pageNumber += 1
-                let spinner = UIActivityIndicatorView(style: .gray)
+                let spinner = UIActivityIndicatorView(style: .whiteLarge)
                 spinner.startAnimating()
                 spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
                 
                 self.tableView.tableFooterView = spinner
                 self.tableView.tableFooterView?.isHidden = false
-                getMoreData { (updateStatus) in
-                    spinner.stopAnimating()
-                    self.tableView.tableFooterView = nil
-                    self.tableView.tableFooterView?.isHidden = true
-                    self.tableView.reloadData()
-//                    if updateStatus
-//                    {
-//
-//                    }
-//                    else {
-//
-//                    }
+                
+                // Little delay to show activity indicator
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self.getMoreData { (updateStatus) in
+                        spinner.stopAnimating()
+                        self.tableView.tableFooterView = nil
+                        self.tableView.tableFooterView?.isHidden = true
+                        self.tableView.reloadData()
+                    }
                 }
-            }            
-            
-            
+            }
         }
     }
     

@@ -22,7 +22,7 @@ class MovieDetailsVC: UIViewController {
     var popularity:String = ""
     var vote_count:String = ""
     
-    let placeholder_image:UIImage = UIImage(named: "placeholder.png")!
+    let placeholder_image:UIImage = UIImage(named: "placeholder_movie.png")!
     
     // MARK: - Outlets
     
@@ -56,7 +56,7 @@ class MovieDetailsVC: UIViewController {
             let movieImagePath = "\(Constants.imageURL)\(self.imagePath)"
             
             // Set Movie Image
-            self.imgView.sd_imageIndicator = SDWebImageActivityIndicator.grayLarge
+            self.imgView.sd_imageIndicator = SDWebImageActivityIndicator.large
             self.imgView.sd_setImage(with: URL(string: movieImagePath), placeholderImage: self.placeholder_image)
     
             self.lblMovieTitle.text = self.movieTitle // Display Movie Title

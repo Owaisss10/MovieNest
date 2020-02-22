@@ -14,7 +14,7 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     
     var moviesData:PopularMoviesResponse!
     
-    let placeholder_image:UIImage = UIImage(named: "placeholder.png")!
+    let placeholder_image:UIImage = UIImage(named: "placeholder_movie.png")!
     
     var selectedMovieTitle:String = ""
     var selectedImagePath:String = ""
@@ -90,7 +90,7 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         let imagePath = self.moviesData.results[indexPath.row].posterPath
         
         let movieImagePath = Constants.imageURL + imagePath!
-        cell.imgView.sd_imageIndicator = SDWebImageActivityIndicator.grayLarge
+        cell.imgView.sd_imageIndicator = SDWebImageActivityIndicator.whiteLarge
         cell.imgView.sd_setImage(with: URL(string: movieImagePath), placeholderImage: self.placeholder_image)
         
         return cell
