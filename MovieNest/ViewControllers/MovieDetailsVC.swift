@@ -16,9 +16,11 @@ class MovieDetailsVC: UIViewController {
     var movieTitle:String = ""
     var imagePath:String = ""
     var rating:String = ""
-    var adult:Bool = false
+    var adult:Bool?
     var overview:String = ""
     var releaseDate:String = ""
+    var popularity:String = ""
+    var vote_count:String = ""
     
     let placeholder_image:UIImage = UIImage(named: "placeholder.png")!
     
@@ -28,9 +30,13 @@ class MovieDetailsVC: UIViewController {
     @IBOutlet weak var lblMovieTitle: UILabel!
     @IBOutlet weak var lblRating: UILabel!
     
+    @IBOutlet weak var lblAdult: UILabel!
     @IBOutlet weak var lblOverview: UILabel!
     
     @IBOutlet weak var lblReleaseDate: UILabel!
+    @IBOutlet weak var lblPopularity: UILabel!
+    @IBOutlet weak var lblVoteCount: UILabel!
+    
     
     // MARK: - View Loads
     
@@ -49,12 +55,19 @@ class MovieDetailsVC: UIViewController {
         DispatchQueue.main.async {
             let movieImagePath = "\(Constants.imageURL)\(self.imagePath)"
             
+            // Set Movie Image
+            self.imgView.sd_imageIndicator = SDWebImageActivityIndicator.grayLarge
             self.imgView.sd_setImage(with: URL(string: movieImagePath), placeholderImage: self.placeholder_image)
+    
+            self.lblMovieTitle.text = self.movieTitle // Display Movie Title
+            self.lblRating.text = self.rating // Display Movie Rating
             
-            self.lblMovieTitle.text = self.movieTitle
-            self.lblRating.text = self.rating
-            self.lblOverview.text = self.overview
+            self.lblOverview.text = self.overview // Display Movie overview content
+            
+            // Display Movie release date, Popularity & Vote Count
             self.lblReleaseDate.text = "Released on: \(self.releaseDate)"
+            self.lblPopularity.text = "Popularity: \(self.popularity)"
+            self.lblVoteCount.text = "Vote Count: \(self.vote_count)"
         }
     }
     

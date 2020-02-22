@@ -1,15 +1,15 @@
 //
-//  MovieResponse.swift
+//  PopularMoviesResponse.swift
 //  Model Generated using http://www.jsoncafe.com/ 
-//  Created on February 21, 2020
+//  Created on February 22, 2020
 
 import Foundation
 
 
-class MovieResponse : NSObject, NSCoding{
+class PopularMoviesResponse : NSObject, NSCoding{
 
     var page : Int!
-    var results : [MovieResult]!
+    var results : [PopularMoviesResult]!
     var totalPages : Int!
     var totalResults : Int!
 
@@ -21,10 +21,10 @@ class MovieResponse : NSObject, NSCoding{
         page = dictionary["page"] as? Int
         totalPages = dictionary["total_pages"] as? Int
         totalResults = dictionary["total_results"] as? Int
-        results = [MovieResult]()
+        results = [PopularMoviesResult]()
         if let resultsArray = dictionary["results"] as? [[String:Any]]{
             for dic in resultsArray{
-                let value = MovieResult(fromDictionary: dic)
+                let value = PopularMoviesResult(fromDictionary: dic)
                 results.append(value)
             }
         }
@@ -62,7 +62,7 @@ class MovieResponse : NSObject, NSCoding{
     @objc required init(coder aDecoder: NSCoder)
     {
         page = aDecoder.decodeObject(forKey: "page") as? Int
-        results = aDecoder.decodeObject(forKey: "results") as? [MovieResult]
+        results = aDecoder.decodeObject(forKey: "results") as? [PopularMoviesResult]
         totalPages = aDecoder.decodeObject(forKey: "total_pages") as? Int
         totalResults = aDecoder.decodeObject(forKey: "total_results") as? Int
     }

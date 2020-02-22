@@ -22,13 +22,18 @@ struct Constants {
     
     static let serverURL = "https://api.themoviedb.org/3/"
     static let allGenres = "genre/movie/list?"
+    static let popularMovies = "movie/popular?"
     
     static let imageURL = "https://image.tmdb.org/t/p/original/"
     
+   
 }
 
 
 struct Colors {
     static var dark_gray_color:UIColor = UIColor(red: 78.0/255.0, green: 91.0/255.0, blue: 96.0/255.0, alpha: 1)
     static var yellow_color:UIColor = UIColor(red: 249.0/255.0, green: 188.0/255.0, blue: 80.0/255.0, alpha: 1)
+    
+    static var green_color:UIColor = UIColor(red: 63.0/255.0, green: 182.0/255.0, blue: 85.0/255.0, alpha: 1)
+    static var red_color:UIColor = UIColor(red: 218.0/255.0, green: 55.0/255.0, blue: 73.0/255.0, alpha: 1)
 }

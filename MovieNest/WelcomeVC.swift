@@ -16,19 +16,28 @@ class WelcomeVC: UIViewController {
     // MARK: - Outlets
     
     
+    
+    @IBOutlet weak var btnStart: UIButton!
+    
+    
+    
     // MARK: - View Loads
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        _ = self.updateUI()
     }
     
     // MARK: - Button Actions
     
+    
     // MARK: - Functions
     
-
+    func updateUI() {
+        self.btnStart.layer.cornerRadius = 10
+        self.btnStart.clipsToBounds = true
+    }
     
     // MARK: - Navigation
 

@@ -1,12 +1,12 @@
 //
-//  MovieResult.swift
+//  PopularMoviesResult.swift
 //  Model Generated using http://www.jsoncafe.com/ 
-//  Created on February 21, 2020
+//  Created on February 22, 2020
 
 import Foundation
 
 
-class MovieResult : NSObject, NSCoding{
+class PopularMoviesResult : NSObject, NSCoding{
 
     var adult : Bool!
     var backdropPath : String!

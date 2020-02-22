@@ -13,6 +13,7 @@ class AllGenreTVC: UITableViewController {
     // MARK: - Variables
     
     var selectedGenreID:String = ""
+    var selectedGenreTitle:String = ""
     var genreData:GenreResponse!
     
     // MARK: - Outlets
@@ -83,6 +84,7 @@ class AllGenreTVC: UITableViewController {
         
         let id = self.genreData.genres[indexPath.row].id
         self.selectedGenreID = "\(id!)"
+        self.selectedGenreTitle = self.genreData.genres[indexPath.row].name
         
         self.performSegue(withIdentifier: "segueNext", sender: self)
     }
@@ -99,6 +101,7 @@ class AllGenreTVC: UITableViewController {
         if segue.identifier == "segueNext" {
             let vc = segue.destination as? AllMoviesTVC
             vc?.genreID = "\(self.selectedGenreID)"
+            vc?.genreTitle = self.selectedGenreTitle
         }
     }
   

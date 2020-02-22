@@ -42,12 +42,12 @@ public class APIManager {
         }
     }
     
-    // MARK: - 2.0 fetchAllGenreIDS API
+    // MARK: - 2.0 fetchAllMovies API
     
-    public static func getMoviesList(genreID: String, completionHandler: @escaping (Any?, Error?) -> ()) {
+    public static func getMoviesList(page: Int = 1, genreID: String, completionHandler: @escaping (Any?, Error?) -> ()) {
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        let url:URL = URL(string: "\(Constants.serverURL)\(Constants.discover)api_key=\(Constants.API_KEY)&with_genres=\(genreID)&language=\(Constants.LANGUAGE)")!
+        let url:URL = URL(string: "\(Constants.serverURL)\(Constants.discover)api_key=\(Constants.API_KEY)&with_genres=\(genreID)&language=\(Constants.LANGUAGE)&page=\(page)")!
         
         print("getMoviesList URL: \(url)")
         
@@ -63,6 +63,35 @@ public class APIManager {
                     completionHandler(value as? NSDictionary, nil)
                 case .failure(let error):
                     print("getMoviesList Err: \(error)")
+                    DispatchQueue.main.async(execute: {
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    })
+                    completionHandler(nil, error)
+                }
+        }
+    }
+    
+    // MARK: - 3.0 fetchAllPopularMovies API
+    
+    public static func getPopularMoviesList(page: Int = 1, completionHandler: @escaping (Any?, Error?) -> ()) {
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        let url:URL = URL(string: "\(Constants.serverURL)\(Constants.popularMovies)api_key=\(Constants.API_KEY)&language=\(Constants.LANGUAGE)&page=\(page)")!
+        
+        print("getPopularMoviesList URL: \(url)")
+        
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
+            .responseJSON { response in
+                print("getPopularMoviesList Response")
+                print(response)
+                switch response.result {
+                case .success(let value):
+                    DispatchQueue.main.async(execute: {
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    })
+                    completionHandler(value as? NSDictionary, nil)
+                case .failure(let error):
+                    print("getPopularMoviesList Err: \(error)")
                     DispatchQueue.main.async(execute: {
                         UIApplication.shared.isNetworkActivityIndicatorVisible = false
                     })

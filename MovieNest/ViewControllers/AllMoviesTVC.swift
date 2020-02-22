@@ -13,6 +13,7 @@ class AllMoviesTVC: UITableViewController {
     // MARK: - Variables
     
     var genreID:String=""
+    var genreTitle:String=""
     
     var selectedMovieTitle:String = ""
     var selectedImagePath:String = ""
@@ -20,9 +21,11 @@ class AllMoviesTVC: UITableViewController {
     var selectedAdult:Bool = false
     var selectedOverview:String = ""
     var selectedReleaseDate:String = ""
+    var selectedPopularity:String = ""
+    var selectedVoteCount:String = ""
     
     var moviesData:MovieResponse!
-    
+    var pageNumber = 1
     // MARK: - Outlets
     
     
@@ -32,6 +35,7 @@ class AllMoviesTVC: UITableViewController {
         super.viewDidLoad()
         
         self.tableView.backgroundColor = Colors.dark_gray_color
+        self.title = genreTitle
         
         _  = self.loadData(genreID: self.genreID)
     }
@@ -55,6 +59,23 @@ class AllMoviesTVC: UITableViewController {
         
     }
     
+    func getMoreData(completionHandler: @escaping (Bool) -> ()) {
+        APIManager.getMoviesList(page: pageNumber, genreID: genreID) { (responseData, error) in
+            self.stopLoader()
+            if error == nil {
+                let newData = MovieResponse(fromDictionary: responseData as! [String : Any])
+                self.pageNumber = newData.page
+                self.moviesData.page = self.pageNumber
+                self.moviesData.results += newData.results
+                completionHandler(true)
+                
+            }
+            else {
+                completionHandler(false)
+                self.sclErrorAlert(message: "An unknown error occurred!", titleMsg: "Request failed")
+            }
+        }
+    }
     
     
     // MARK: - Table view data source
@@ -96,12 +117,42 @@ class AllMoviesTVC: UITableViewController {
         selectedAdult = self.moviesData.results[indexPath.row].adult
         selectedOverview = self.moviesData.results[indexPath.row].overview
         selectedReleaseDate = self.moviesData.results[indexPath.row].releaseDate
+        selectedPopularity = "\(self.moviesData.results[indexPath.row].popularity!)"
+        selectedVoteCount = "\(self.moviesData.results[indexPath.row].voteCount!)"
         
         self.performSegue(withIdentifier: "segueNext", sender: self)
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
+        let lastSectionIndex = tableView.numberOfSections - 1
+        let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
+        if indexPath.row == moviesData.results.count - 1 {
+            if pageNumber < moviesData.totalPages {
+                self.pageNumber += 1
+                let spinner = UIActivityIndicatorView(style: .gray)
+                spinner.startAnimating()
+                spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+                
+                self.tableView.tableFooterView = spinner
+                self.tableView.tableFooterView?.isHidden = false
+                getMoreData { (updateStatus) in
+                    spinner.stopAnimating()
+                    self.tableView.tableFooterView = nil
+                    self.tableView.tableFooterView?.isHidden = true
+                    self.tableView.reloadData()
+//                    if updateStatus
+//                    {
+//
+//                    }
+//                    else {
+//
+//                    }
+                }
+            }            
+            
+            
+        }
     }
     
     
@@ -118,6 +169,8 @@ class AllMoviesTVC: UITableViewController {
             vc?.adult = selectedAdult
             vc?.overview = selectedOverview
             vc?.releaseDate = selectedReleaseDate
+            vc?.popularity = selectedPopularity
+            vc?.vote_count = selectedVoteCount
             
         }
     }
