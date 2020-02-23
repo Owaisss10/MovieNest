@@ -31,6 +31,16 @@
 		A9A6C79A2835A41405D4D8D4 /* Pods_MovieNest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0F2B02D7D42B80D280E7F5 /* Pods_MovieNest.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		6CE9FC882402D12D00E32F8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CD67F0B240049F5000EB157 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6CD67F12240049F5000EB157;
+			remoteInfo = MovieNest;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		3A0F2B02D7D42B80D280E7F5 /* Pods_MovieNest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieNest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C4B1D3D2401A60F000572B1 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -56,6 +66,7 @@
 		6CD67F482400760C000EB157 /* AllMoviesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMoviesTVC.swift; sourceTree = "<group>"; };
 		6CD67F4A2400766B000EB157 /* AllMoviesTCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMoviesTCell.swift; sourceTree = "<group>"; };
 		6CD67F4C2400B97E000EB157 /* MovieDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsVC.swift; sourceTree = "<group>"; };
+		6CE9FC832402D12D00E32F8A /* MovieNestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieNestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		893F6B8EFEC4AE2A85A55684 /* Pods-MovieNest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieNest.release.xcconfig"; path = "Target Support Files/Pods-MovieNest/Pods-MovieNest.release.xcconfig"; sourceTree = "<group>"; };
 		D8636198461067EC6F82F6DE /* Pods-MovieNest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieNest.debug.xcconfig"; path = "Target Support Files/Pods-MovieNest/Pods-MovieNest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +77,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9A6C79A2835A41405D4D8D4 /* Pods_MovieNest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CE9FC802402D12D00E32F8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				6CD67F13240049F5000EB157 /* MovieNest.app */,
+				6CE9FC832402D12D00E32F8A /* MovieNestTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,8 +164,8 @@
 		6CD67F33240062A6000EB157 /* GenreResponse */ = {
 			isa = PBXGroup;
 			children = (
-				6CD67F35240062DE000EB157 /* Genre.swift */,
 				6CD67F34240062DE000EB157 /* GenreResponse.swift */,
+				6CD67F35240062DE000EB157 /* Genre.swift */,
 			);
 			path = GenreResponse;
 			sourceTree = "<group>";
@@ -246,6 +265,24 @@
 			productReference = 6CD67F13240049F5000EB157 /* MovieNest.app */;
 			productType = "com.apple.product-type.application";
 		};
+		6CE9FC822402D12D00E32F8A /* MovieNestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CE9FC8A2402D12D00E32F8A /* Build configuration list for PBXNativeTarget "MovieNestTests" */;
+			buildPhases = (
+				6CE9FC7F2402D12D00E32F8A /* Sources */,
+				6CE9FC802402D12D00E32F8A /* Frameworks */,
+				6CE9FC812402D12D00E32F8A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6CE9FC892402D12D00E32F8A /* PBXTargetDependency */,
+			);
+			name = MovieNestTests;
+			productName = MovieNestTests;
+			productReference = 6CE9FC832402D12D00E32F8A /* MovieNestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -258,6 +295,10 @@
 				TargetAttributes = {
 					6CD67F12240049F5000EB157 = {
 						CreatedOnToolsVersion = 10.1;
+					};
+					6CE9FC822402D12D00E32F8A = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 6CD67F12240049F5000EB157;
 					};
 				};
 			};
@@ -275,6 +316,7 @@
 			projectRoot = "";
 			targets = (
 				6CD67F12240049F5000EB157 /* MovieNest */,
+				6CE9FC822402D12D00E32F8A /* MovieNestTests */,
 			);
 		};
 /* End PBXProject section */
@@ -287,6 +329,13 @@
 				6CD67F21240049F7000EB157 /* LaunchScreen.storyboard in Resources */,
 				6CD67F1E240049F7000EB157 /* Assets.xcassets in Resources */,
 				6CD67F1C240049F5000EB157 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CE9FC812402D12D00E32F8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,7 +409,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6CE9FC7F2402D12D00E32F8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6CE9FC892402D12D00E32F8A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6CD67F12240049F5000EB157 /* MovieNest */;
+			targetProxy = 6CE9FC882402D12D00E32F8A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6CD67F1A240049F5000EB157 /* Main.storyboard */ = {
@@ -536,6 +600,46 @@
 			};
 			name = Release;
 		};
+		6CE9FC8B2402D12D00E32F8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KXSZN874WP;
+				INFOPLIST_FILE = MovieNestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.awaisakram.MovieNestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieNest.app/MovieNest";
+			};
+			name = Debug;
+		};
+		6CE9FC8C2402D12D00E32F8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KXSZN874WP;
+				INFOPLIST_FILE = MovieNestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.awaisakram.MovieNestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieNest.app/MovieNest";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -553,6 +657,15 @@
 			buildConfigurations = (
 				6CD67F26240049F7000EB157 /* Debug */,
 				6CD67F27240049F7000EB157 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6CE9FC8A2402D12D00E32F8A /* Build configuration list for PBXNativeTarget "MovieNestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CE9FC8B2402D12D00E32F8A /* Debug */,
+				6CE9FC8C2402D12D00E32F8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

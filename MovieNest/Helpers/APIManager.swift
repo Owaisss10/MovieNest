@@ -84,6 +84,7 @@ public class APIManager {
             .responseJSON { response in
                 print("getPopularMoviesList Response")
                 print(response)
+                
                 switch response.result {
                 case .success(let value):
                     DispatchQueue.main.async(execute: {
