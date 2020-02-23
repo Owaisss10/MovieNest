@@ -24,7 +24,9 @@ class AllGenreTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // setting tableview background color
         self.tableView.backgroundColor = Colors.dark_gray_color
+        self.tableView.separatorStyle = .none // hide tableview cells seperator line
         
         // Load data from API Call
         _ = self.loadData()
@@ -40,6 +42,7 @@ class AllGenreTVC: UITableViewController {
             self.stopLoader()
             if error == nil {
                 self.genreData = GenreResponse(fromDictionary: responseData as! [String : Any])
+                self.tableView.separatorStyle = .singleLine // show tableview cells seperator line
                 self.tableView.reloadData()
             }
             else {

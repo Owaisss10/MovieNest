@@ -37,7 +37,9 @@ class AllMoviesTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // setting tableview background color
         self.tableView.backgroundColor = Colors.dark_gray_color
+        self.tableView.separatorStyle = .none // hide tableview cells seperator line
         self.title = genreTitle
         
         _  = self.loadData(genreID: self.genreID)
@@ -53,6 +55,7 @@ class AllMoviesTVC: UITableViewController {
             self.stopLoader()
             if error == nil {
                 self.moviesData = MovieResponse(fromDictionary: responseData as! [String : Any])
+                self.tableView.separatorStyle = .singleLine // show tableview cells seperator line
                 self.tableView.reloadData()
             }
             else {
