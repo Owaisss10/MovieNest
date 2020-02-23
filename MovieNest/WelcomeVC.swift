@@ -49,7 +49,7 @@ class WelcomeVC: UIViewController, UIGestureRecognizerDelegate {
         transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
         view.window!.layer.add(transition, forKey: kCATransition)
         let homeNCVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeNCVC")
-        
+        homeNCVC?.modalPresentationStyle = .fullScreen
         self.present(homeNCVC!, animated: false, completion: nil)
     }
     
