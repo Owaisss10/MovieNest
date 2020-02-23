@@ -53,11 +53,19 @@ class MovieDetailsVC: UIViewController {
     func updateUI() {
         
         DispatchQueue.main.async {
-            let movieImagePath = "\(Constants.imageURL)\(self.imagePath)"
             
-            // Set Movie Image
-            self.imgView.sd_imageIndicator = SDWebImageActivityIndicator.large
-            self.imgView.sd_setImage(with: URL(string: movieImagePath), placeholderImage: self.placeholder_image)
+            if self.imagePath != "nil" {
+                let movieImagePath = "\(Constants.imageURL)\(self.imagePath)"
+                
+                // Set Movie Image
+                self.imgView.sd_imageIndicator = SDWebImageActivityIndicator.large
+                self.imgView.sd_setImage(with: URL(string: movieImagePath), placeholderImage: self.placeholder_image)
+            }
+            else {
+                self.imgView.image = self.placeholder_image
+            }
+            
+            
     
             self.lblMovieTitle.text = self.movieTitle // Display Movie Title
             self.lblRating.text = self.rating // Display Movie Rating

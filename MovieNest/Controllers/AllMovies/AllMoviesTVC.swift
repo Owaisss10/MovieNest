@@ -93,7 +93,7 @@ class AllMoviesTVC: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:AllMoviesTCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AllMoviesTCell
+        let cell:AllMoviesTCell = tableView.dequeueReusableCell(withIdentifier: "\(Constants.cellIdentifier)", for: indexPath) as! AllMoviesTCell
         
         // Configure the cell...
         
@@ -112,7 +112,7 @@ class AllMoviesTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         selectedMovieTitle = self.moviesData.results[indexPath.row].originalTitle
-        selectedImagePath = self.moviesData.results[indexPath.row].backdropPath
+        selectedImagePath = self.moviesData.results[indexPath.row].backdropPath ?? "nil"
         selectedRating = "\(self.moviesData.results[indexPath.row].voteAverage!)"
         selectedAdult = self.moviesData.results[indexPath.row].adult
         selectedOverview = self.moviesData.results[indexPath.row].overview

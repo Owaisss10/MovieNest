@@ -115,7 +115,7 @@
 				6CD67F2B24005979000EB157 /* WelcomeVC.swift */,
 				6CD67F2824005918000EB157 /* Models */,
 				6CD67F2924005921000EB157 /* Storyboards */,
-				6CD67F4024006E76000EB157 /* ViewControllers */,
+				6CD67F4024006E76000EB157 /* Controllers */,
 				6CD67F3F24006E5E000EB157 /* Helpers */,
 				6CD67F1D240049F7000EB157 /* Assets.xcassets */,
 				6CD67F22240049F7000EB157 /* Info.plist */,
@@ -161,18 +161,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		6CD67F4024006E76000EB157 /* ViewControllers */ = {
+		6CD67F4024006E76000EB157 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6C4B1D3D2401A60F000572B1 /* HomeVC.swift */,
-				6C4B1D3F2401B9DE000572B1 /* HomeCCell.swift */,
-				6CD67F2F240060FD000EB157 /* AllGenreTVC.swift */,
-				6CD67F312400615D000EB157 /* AllGenreTCell.swift */,
-				6CD67F482400760C000EB157 /* AllMoviesTVC.swift */,
-				6CD67F4A2400766B000EB157 /* AllMoviesTCell.swift */,
-				6CD67F4C2400B97E000EB157 /* MovieDetailsVC.swift */,
+				6CDEF2A02401F39400009D0E /* Home */,
+				6CDEF2A12401F39B00009D0E /* AllGenre */,
+				6CDEF2A22401F3A400009D0E /* AllMovies */,
+				6CDEF2A32401F3BF00009D0E /* MovieDetails */,
 			);
-			path = ViewControllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		6CD67F43240075B3000EB157 /* MovieResponse */ = {
@@ -182,6 +179,41 @@
 				6CD67F45240075CE000EB157 /* MovieResult.swift */,
 			);
 			path = MovieResponse;
+			sourceTree = "<group>";
+		};
+		6CDEF2A02401F39400009D0E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				6C4B1D3D2401A60F000572B1 /* HomeVC.swift */,
+				6C4B1D3F2401B9DE000572B1 /* HomeCCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		6CDEF2A12401F39B00009D0E /* AllGenre */ = {
+			isa = PBXGroup;
+			children = (
+				6CD67F2F240060FD000EB157 /* AllGenreTVC.swift */,
+				6CD67F312400615D000EB157 /* AllGenreTCell.swift */,
+			);
+			path = AllGenre;
+			sourceTree = "<group>";
+		};
+		6CDEF2A22401F3A400009D0E /* AllMovies */ = {
+			isa = PBXGroup;
+			children = (
+				6CD67F482400760C000EB157 /* AllMoviesTVC.swift */,
+				6CD67F4A2400766B000EB157 /* AllMoviesTCell.swift */,
+			);
+			path = AllMovies;
+			sourceTree = "<group>";
+		};
+		6CDEF2A32401F3BF00009D0E /* MovieDetails */ = {
+			isa = PBXGroup;
+			children = (
+				6CD67F4C2400B97E000EB157 /* MovieDetailsVC.swift */,
+			);
+			path = MovieDetails;
 			sourceTree = "<group>";
 		};
 		71C6CEA4E096E57D087C7E58 /* Frameworks */ = {

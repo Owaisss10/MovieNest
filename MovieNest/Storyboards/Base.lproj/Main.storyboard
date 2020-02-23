@@ -29,7 +29,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jnh-Oa-Ebw">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jnh-Oa-Ebw">
                                 <rect key="frame" x="60" y="494" width="200" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.97645372152328491" green="0.73864412307739258" blue="0.31312018632888794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -37,9 +37,6 @@
                                 <state key="normal" title="Let's Start">
                                     <color key="titleColor" red="0.32461900709999997" green="0.37676943540000002" blue="0.37713140249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="1v0-6S-ywB" kind="show" id="b0U-zZ-NKV"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MovieNest App uses IMDB services to provide movie suggestions on the basis of Genre." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5OM-W2-Pke">
                                 <rect key="frame" x="16" y="331" width="288" height="69"/>
@@ -48,13 +45,26 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap anywhere to continue..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chN-uf-WCJ">
+                                <rect key="frame" x="16" y="458" width="288" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                <color key="textColor" red="0.97645372149999998" green="0.73864412310000005" blue="0.31312018629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.30430650710000001" green="0.35645693540000001" blue="0.37713140249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="9RL-nq-iTA"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Jnh-Oa-Ebw"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="5d5-K5-wW4"/>
                     <connections>
                         <outlet property="btnStart" destination="Jnh-Oa-Ebw" id="wKc-uv-iUH"/>
+                        <outlet property="lblTapAnywhere" destination="chN-uf-WCJ" id="zQ6-0S-onK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVa-xa-ckh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -206,7 +216,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Uqs-x1-5bt">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1v0-6S-ywB" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNCVC" automaticallyAdjustsScrollViewInsets="NO" id="1v0-6S-ywB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bpH-hM-ebD">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>

@@ -29,8 +29,6 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     // MARK: - Outlets
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    
     @IBOutlet weak var btnPreference: UIButton!
     
     // MARK: - View Loads
@@ -41,8 +39,10 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         collectionView.dataSource = self
         collectionView.delegate = self
         
+        // update UI Items
         _ = self.updateUI()
         
+        // Load data from API Call
         _ = self.loadData()
     }
     
@@ -85,7 +85,7 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell:HomeCCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeCCell
+        let cell:HomeCCell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(Constants.cellIdentifier)", for: indexPath) as! HomeCCell
         
         let imagePath = self.moviesData.results[indexPath.row].posterPath
         
@@ -96,12 +96,12 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         return cell
     }
     
-    // MARK: - Colection view delegate
+    // MARK: - Colection view Delegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         selectedMovieTitle = self.moviesData.results[indexPath.row].originalTitle
-        selectedImagePath = self.moviesData.results[indexPath.row].backdropPath
+        selectedImagePath = self.moviesData.results[indexPath.row].backdropPath ?? "nil"
         selectedRating = "\(self.moviesData.results[indexPath.row].voteAverage!)"
         selectedAdult = self.moviesData.results[indexPath.row].adult
         selectedOverview = self.moviesData.results[indexPath.row].overview
@@ -113,9 +113,6 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
-    }
     
     // MARK: - Navigation
     

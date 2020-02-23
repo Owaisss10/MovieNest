@@ -31,6 +31,17 @@ extension UIViewController {
         _ = SCLAlertView().showSuccess(titleMsg, subTitle:message, closeButtonTitle:"Okay")
     }
     
+    func fadeViewInThenOut(view: UIView) {
+        view.alpha = 1
+        UIView.animate(withDuration: 1,
+                                   delay: 0,
+                                   options: [UIView.AnimationOptions.autoreverse, UIView.AnimationOptions.repeat],
+                                   animations: {
+                                    view.alpha = 0
+        },
+                                   completion: nil)
+    }
+    
 }
 
 

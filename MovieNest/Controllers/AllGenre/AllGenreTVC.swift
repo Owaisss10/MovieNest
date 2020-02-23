@@ -26,7 +26,8 @@ class AllGenreTVC: UITableViewController {
         
         self.tableView.backgroundColor = Colors.dark_gray_color
         
-        _  = self.loadData()
+        // Load data from API Call
+        _ = self.loadData()
     }
     
     // MARK: - Button Actions
@@ -65,7 +66,7 @@ class AllGenreTVC: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:AllGenreTCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AllGenreTCell
+        let cell:AllGenreTCell = tableView.dequeueReusableCell(withIdentifier: "\(Constants.cellIdentifier)", for: indexPath) as! AllGenreTCell
 
         // Configure the cell...
         

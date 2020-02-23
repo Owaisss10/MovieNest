@@ -8,18 +8,14 @@
 
 import UIKit
 
-class WelcomeVC: UIViewController {
+class WelcomeVC: UIViewController, UIGestureRecognizerDelegate {
     
     // MARK: - Variables
     
-    
     // MARK: - Outlets
     
-    
-    
     @IBOutlet weak var btnStart: UIButton!
-    
-    
+    @IBOutlet weak var lblTapAnywhere: UILabel!
     
     // MARK: - View Loads
 
@@ -35,8 +31,21 @@ class WelcomeVC: UIViewController {
     // MARK: - Functions
     
     func updateUI() {
-        self.btnStart.layer.cornerRadius = 10
-        self.btnStart.clipsToBounds = true
+        
+        // Fade In and Out to animate the label
+        self.fadeViewInThenOut(view: self.lblTapAnywhere)
+        
+        // Tap Gesture recognizer initilization and setting target function
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped(gestureRecognizer:)))
+        self.view.addGestureRecognizer(tapRecognizer)
+        tapRecognizer.delegate = self
+    }
+    
+    @objc func tapped(gestureRecognizer: UITapGestureRecognizer) {
+        // navigate to next screen
+        
+        let homeNCVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeNCVC")
+        self.present(homeNCVC!, animated: true, completion: nil)
     }
     
     // MARK: - Navigation
