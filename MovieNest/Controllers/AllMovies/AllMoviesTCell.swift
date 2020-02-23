@@ -14,7 +14,13 @@ class AllMoviesTCell: UITableViewCell {
     
     // MARK: - Outlets Connections
     
+    @IBOutlet weak var imgView: UIImageView!
+    
+    
     @IBOutlet weak var lblTitle: UILabel!
+    
+    @IBOutlet weak var lblOverview: UILabel!
+    
     @IBOutlet weak var lblRating: UILabel!
     
     // MARK: - Table View Cell Functions

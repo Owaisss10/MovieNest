@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import SDWebImage
 
 class AllMoviesTVC: UITableViewController {
 
     // MARK: - Variables
+    
+    let placeholder_image:UIImage = UIImage(named: "placeholder_movie.png")!
     
     var genreID:String=""
     var genreTitle:String=""
@@ -99,6 +102,13 @@ class AllMoviesTVC: UITableViewController {
         
         cell.lblTitle.text = self.moviesData.results[indexPath.row].originalTitle
         cell.lblRating.text = "\(self.moviesData.results[indexPath.row].voteAverage ?? 0.0)"
+        cell.lblOverview.text = self.moviesData.results[indexPath.row].overview
+        
+        let imagePath = self.moviesData.results[indexPath.row].posterPath
+        
+        let movieImagePath = Constants.imageURL + imagePath!
+        cell.imgView.sd_imageIndicator = SDWebImageActivityIndicator.whiteLarge
+        cell.imgView.sd_setImage(with: URL(string: movieImagePath), placeholderImage: self.placeholder_image)
         
         return cell
     }
@@ -106,7 +116,7 @@ class AllMoviesTVC: UITableViewController {
     // MARK: - Table view delegates
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70.0
+        return 120.0
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
