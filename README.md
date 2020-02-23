@@ -2,7 +2,13 @@
 
 MovieNest is an iOS Application designed for movie suggestions. This app uses IMDB services to fetch movies on the Genre preferences.
 
-#### Video Link: [Movie Nest native iOS on YouTube](https://youtu.be/cEkFP4JAEYs)   
+#### Video Link: [MovieNest native iOS on YouTube](https://youtu.be/lyAYCbBMBv8)   
+
+#### Screenshots:
+
+ <img src="https://github.com/Owaisss10/MovieNest/blob/master/ScreenShots/Home.png" width="200" height="356">&nbsp;&nbsp;&nbsp;<img src="https://github.com/Owaisss10/MovieNest/blob/master/ScreenShots/GenreList.png" width="200" height="356">&nbsp;&nbsp;&nbsp;<img src="https://github.com/Owaisss10/MovieNest/blob/master/ScreenShots/MoviesList.png" width="200" height="356">&nbsp;&nbsp;&nbsp;<img src="https://github.com/Owaisss10/MovieNest/blob/master/ScreenShots/MovieDetails.png" width="200" height="356">
+ 
+
 
 #### Features:
   1.  Popular Movies
@@ -50,7 +56,7 @@ App images are places in **Assets.xcassets** folder
 
 #### Logo Designing:
 
-I designed the logo myself from [Canva.com](https://www.canva.com/) and followed app theme by colors used in the logo (Dark Gray & Yellow)
+I designed the logo myself on [Canva.com](https://www.canva.com/) and followed app theme by colors used in the logo (Dark Gray & Yellow)
 
 #### Backend TMDB API:
 
