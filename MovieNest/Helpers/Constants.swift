@@ -18,7 +18,7 @@ struct Constants {
     static let cellIdentifier = "cell"
     
     static let API_KEY = "8ce87288c07809c7597ee9e0e9bb0a7d"
-    static let LANGUAGE = "&language=en-US"
+    static let LANGUAGE = "en-US"
     
     static let discover = "discover/movie?"
     

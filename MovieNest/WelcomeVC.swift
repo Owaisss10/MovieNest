@@ -43,9 +43,14 @@ class WelcomeVC: UIViewController, UIGestureRecognizerDelegate {
     
     @objc func tapped(gestureRecognizer: UITapGestureRecognizer) {
         // navigate to next screen
-        
+        let transition = CATransition()
+        transition.duration = 0.8
+        transition.type = CATransitionType.fade
+        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+        view.window!.layer.add(transition, forKey: kCATransition)
         let homeNCVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeNCVC")
-        self.present(homeNCVC!, animated: true, completion: nil)
+        
+        self.present(homeNCVC!, animated: false, completion: nil)
     }
     
     // MARK: - Navigation
