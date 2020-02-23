@@ -104,11 +104,14 @@ class AllMoviesTVC: UITableViewController {
         cell.lblRating.text = "\(self.moviesData.results[indexPath.row].voteAverage ?? 0.0)"
         cell.lblOverview.text = self.moviesData.results[indexPath.row].overview
         
-        let imagePath = self.moviesData.results[indexPath.row].posterPath
-        
-        let movieImagePath = Constants.imageURL + imagePath!
-        cell.imgView.sd_imageIndicator = SDWebImageActivityIndicator.whiteLarge
-        cell.imgView.sd_setImage(with: URL(string: movieImagePath), placeholderImage: self.placeholder_image)
+        if let imagePath = self.moviesData.results[indexPath.row].posterPath {
+            let movieImagePath = Constants.imageURL + imagePath
+            cell.imgView.sd_imageIndicator = SDWebImageActivityIndicator.whiteLarge
+            cell.imgView.sd_setImage(with: URL(string: movieImagePath), placeholderImage: self.placeholder_image)
+        }
+        else {
+            cell.imgView.image = placeholder_image
+        }
         
         return cell
     }

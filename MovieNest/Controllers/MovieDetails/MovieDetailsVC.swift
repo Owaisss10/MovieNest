@@ -54,6 +54,8 @@ class MovieDetailsVC: UIViewController {
         
         DispatchQueue.main.async {
             
+            self.title = self.movieTitle // display movie name on nav bar
+            
             if self.imagePath != "nil" {
                 let movieImagePath = "\(Constants.imageURL)\(self.imagePath)"
                 
@@ -68,7 +70,7 @@ class MovieDetailsVC: UIViewController {
             
     
             self.lblMovieTitle.text = self.movieTitle // Display Movie Title
-            self.lblRating.text = self.rating // Display Movie Rating
+            self.lblRating.text = self.rating + "/10" // Display Movie Rating
             
             self.lblOverview.text = self.overview // Display Movie overview content
             
